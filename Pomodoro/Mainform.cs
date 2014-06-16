@@ -15,6 +15,7 @@ namespace Pomodoro
         public Mainform()
         {
             InitializeComponent();
+            MainTimer.Start();
         }
 
         private void Tray_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -35,5 +36,58 @@ namespace Pomodoro
                 this.Visible = false;
             }
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Mainform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = true;
+            this.Visible = false;
+        }
+
+        private void btnStartWork_Click(object sender, EventArgs e)
+        {
+            _restTime = new TimeSpan(0, _workingTime, 0);
+            _state = PomodoroState.Started;
+        }
+
+        private void MainTimer_Tick(object sender, EventArgs e)
+        {
+            ShowTime();
+        }
+
+        #region Business Layer
+
+        private DateTime _startTime;
+        private PomodoroState _state = PomodoroState.Stopped;
+
+        private int _workingTime = 20;
+        private int _lazyTime = 10;
+        private TimeSpan _restTime;
+
+        private void ShowTime()
+        {
+            if (_state == PomodoroState.Started)
+            {
+                _restTime = _restTime.Subtract(new TimeSpan(0, 0, 1));
+                lblTime.Text = _restTime.Minutes.ToString("00") + 
+                    ":" + _restTime.Seconds.ToString("00");
+            }
+        }
+
+        #endregion
+
+    }
+
+    public enum PomodoroState
+    {
+        Stopped,
+        Started,
+        Paused
     }
 }
