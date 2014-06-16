@@ -57,24 +57,24 @@
             this.stopWorkToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TrayMenu.Name = "TrayMenu";
-            this.TrayMenu.Size = new System.Drawing.Size(167, 70);
+            this.TrayMenu.Size = new System.Drawing.Size(163, 70);
             // 
             // startWorkToolStripMenuItem
             // 
             this.startWorkToolStripMenuItem.Name = "startWorkToolStripMenuItem";
-            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.startWorkToolStripMenuItem.Text = "Начать работать";
             // 
             // stopWorkToolStripMenuItem
             // 
             this.stopWorkToolStripMenuItem.Name = "stopWorkToolStripMenuItem";
-            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.stopWorkToolStripMenuItem.Text = "Начать лениться";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.exitToolStripMenuItem.Text = "Выйти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -96,6 +96,7 @@
             this.btnStopWork.TabIndex = 2;
             this.btnStopWork.Text = "Начать лениться";
             this.btnStopWork.UseVisualStyleBackColor = true;
+            this.btnStopWork.Click += new System.EventHandler(this.btnStopWork_Click);
             // 
             // lblTime
             // 

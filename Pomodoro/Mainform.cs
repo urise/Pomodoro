@@ -53,8 +53,15 @@ namespace Pomodoro
         private void btnStartWork_Click(object sender, EventArgs e)
         {
             _restTime = new TimeSpan(0, _workingTime, 0);
-            _state = PomodoroState.Started;
+            _state = PomodoroState.WorkStarted;
         }
+        private void btnStopWork_Click(object sender, EventArgs e)
+        {
+            _restTime = new TimeSpan(0, _lazyTime, 0);
+            _state = PomodoroState.RestStarted;
+
+        }
+
 
         private void MainTimer_Tick(object sender, EventArgs e)
         {
@@ -72,7 +79,7 @@ namespace Pomodoro
 
         private void ShowTime()
         {
-            if (_state == PomodoroState.Started)
+            if (_state == PomodoroState.WorkStarted || _state == PomodoroState.RestStarted)
             {
                 _restTime = _restTime.Subtract(new TimeSpan(0, 0, 1));
                 lblTime.Text = _restTime.Minutes.ToString("00") + 
@@ -87,7 +94,8 @@ namespace Pomodoro
     public enum PomodoroState
     {
         Stopped,
-        Started,
+        WorkStarted,
+        RestStarted,
         Paused
     }
 }
