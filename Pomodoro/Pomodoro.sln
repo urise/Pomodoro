@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pomodoro", "Pomodoro.csproj", "{32AA76C5-07B2-45CF-AB19-F43FF43622E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{6017092A-345C-4178-A32E-8D9D5BDCA9C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{E6C72E58-F95A-437C-AC16-4E508D24B3C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{32AA76C5-07B2-45CF-AB19-F43FF43622E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32AA76C5-07B2-45CF-AB19-F43FF43622E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32AA76C5-07B2-45CF-AB19-F43FF43622E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6017092A-345C-4178-A32E-8D9D5BDCA9C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6017092A-345C-4178-A32E-8D9D5BDCA9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6017092A-345C-4178-A32E-8D9D5BDCA9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6017092A-345C-4178-A32E-8D9D5BDCA9C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6C72E58-F95A-437C-AC16-4E508D24B3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C72E58-F95A-437C-AC16-4E508D24B3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C72E58-F95A-437C-AC16-4E508D24B3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C72E58-F95A-437C-AC16-4E508D24B3C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

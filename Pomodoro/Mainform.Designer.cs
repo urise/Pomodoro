@@ -39,6 +39,7 @@
             this.btnStopWork = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.TrayMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,24 +58,24 @@
             this.stopWorkToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TrayMenu.Name = "TrayMenu";
-            this.TrayMenu.Size = new System.Drawing.Size(163, 70);
+            this.TrayMenu.Size = new System.Drawing.Size(167, 70);
             // 
             // startWorkToolStripMenuItem
             // 
             this.startWorkToolStripMenuItem.Name = "startWorkToolStripMenuItem";
-            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.startWorkToolStripMenuItem.Text = "Начать работать";
             // 
             // stopWorkToolStripMenuItem
             // 
             this.stopWorkToolStripMenuItem.Name = "stopWorkToolStripMenuItem";
-            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.stopWorkToolStripMenuItem.Text = "Начать лениться";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.exitToolStripMenuItem.Text = "Выйти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -113,11 +114,19 @@
             this.MainTimer.Interval = 1000;
             this.MainTimer.Tick += new System.EventHandler(this.MainTimer_Tick);
             // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(13, 72);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(236, 20);
+            this.txtDescription.TabIndex = 4;
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 69);
+            this.ClientSize = new System.Drawing.Size(261, 104);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.btnStopWork);
             this.Controls.Add(this.btnStartWork);
@@ -143,6 +152,7 @@
         private System.Windows.Forms.Button btnStopWork;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer MainTimer;
+        private System.Windows.Forms.TextBox txtDescription;
     }
 }
 
