@@ -10,7 +10,17 @@ namespace BusinessLogic
     {
         private PomodoroOptions Options { get; set; }
 
-        public PomodoroState State { get; private set; }
+        private PomodoroState _state = PomodoroState.Stopped;
+
+        public PomodoroState State
+        {
+            get { return _state; }
+            private set
+            {
+                _state = value;
+                OnStateChanged(this, new EventArgs());
+            }
+        }
         private int SecondsTillEnd { get; set; }
 
         public EventHandler OnTimeTextChanged;
@@ -18,6 +28,8 @@ namespace BusinessLogic
         public EventHandler OnRestStarted;
 
         public EventHandler OnRestEnded;
+
+        public EventHandler OnStateChanged;
 
         private const int SecondsInMinute = 60;
 
@@ -29,7 +41,6 @@ namespace BusinessLogic
         public PomodoroDispatcher(PomodoroOptions options)
         {
             Options = options;
-            State = PomodoroState.Stopped;
         }
 
         public void TickOneSecond()
@@ -67,9 +78,20 @@ namespace BusinessLogic
             State = PomodoroState.Paused;
         }
 
+        public void Continue()
+        {
+            State = PomodoroState.WorkStarted;
+        }
+
         public void Stop()
         {
             State = PomodoroState.Stopped;
+        }
+
+        public void Rest()
+        {
+            State = PomodoroState.RestStarted;
+            SecondsTillEnd = Options.RestTime*SecondsInMinute;
         }
     }
 }
