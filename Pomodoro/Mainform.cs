@@ -88,23 +88,23 @@ namespace Pomodoro
             ShowState();
         }
 
-        private string GetImageFileName()
+        private string GetImageFileName(string extension)
         {
             switch (Dispatcher.State)
             {
                 case PomodoroState.WorkStarted:
-                    return @"img\tomato-red.ico";
+                    return @"img\tomato-red." + extension;
                 case PomodoroState.RestStarted:
-                    return @"img\tomato-green.ico";
+                    return @"img\tomato-green." + extension;
                 default:
-                    return @"img\tomato-orange.ico";
+                    return @"img\tomato-orange." + extension;
             }
         }
 
         private void ShowState()
         {
-            pctPomodoro.ImageLocation = GetImageFileName();
-            Tray.Icon = new Icon(GetImageFileName());
+            pctPomodoro.ImageLocation = GetImageFileName("png");
+            Tray.Icon = new Icon(GetImageFileName("ico"));
         }
 
         private void ShowTime(object sender, EventArgs e)
