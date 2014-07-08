@@ -28,7 +28,7 @@ namespace Pomodoro
             Dispatcher.OnStateChanged += StateChanged;
             MainTimer.Start();
             ShowState();
-            lblTime.Text = Dispatcher.TimeText;
+            SetTime(Dispatcher.TimeText);
         }
 
         private void ShowForm()
@@ -68,14 +68,11 @@ namespace Pomodoro
         {
             Tray.Text = txtDescription.Text;
             Dispatcher.Start();
-            lblTime.ForeColor = Color.DarkRed;
-            //HideToTray();
         }
         private void btnStopWork_Click(object sender, EventArgs e)
         {
             Dispatcher.Stop();
-            lblTime.Text = "00:00";
-            lblTime.ForeColor = Color.DarkOrange;
+            SetTime("00:00");
         }
 
         private void MainTimer_Tick(object sender, EventArgs e)
@@ -109,20 +106,17 @@ namespace Pomodoro
 
         private void ShowTime(object sender, EventArgs e)
         {
-            lblTime.Text = Dispatcher.TimeText;
+            SetTime(Dispatcher.TimeText);
             Tray.Text = Dispatcher.TimeText + " " + txtDescription.Text;
         }
 
         private void RestStarted(object sender, EventArgs e)
         {
-            lblTime.ForeColor = Color.DarkGreen;
             ShowForm();
         }
 
         private void RestEnded(object sender, EventArgs e)
         {
-            //lblTime.Text = "--:--";
-            lblTime.ForeColor = Color.DarkOrange;
             ShowForm();
         }
 
@@ -134,7 +128,7 @@ namespace Pomodoro
         private void btnStop_Click(object sender, EventArgs e)
         {
             Dispatcher.Stop();
-            lblTime.Text = "00:00";
+            SetTime("00:00");
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -153,7 +147,12 @@ namespace Pomodoro
                     break;
             }
         }
-    }
 
-    
+        public void SetTime(string timeText)
+        {
+            var parts = timeText.Split(':');
+            lblMinutes.Text = parts[0];
+            lblSeconds.Text = parts[1];
+        }
+    }
 }

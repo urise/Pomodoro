@@ -41,11 +41,12 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pctPomodoro = new System.Windows.Forms.PictureBox();
-            this.lblTime = new System.Windows.Forms.Label();
+            this.lblMinutes = new System.Windows.Forms.Label();
             this.btnStartWork = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnRest = new System.Windows.Forms.Button();
+            this.lblSeconds = new System.Windows.Forms.Label();
             this.TrayMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctPomodoro)).BeginInit();
             this.SuspendLayout();
@@ -67,40 +68,40 @@
             this.стопToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TrayMenu.Name = "TrayMenu";
-            this.TrayMenu.Size = new System.Drawing.Size(128, 114);
+            this.TrayMenu.Size = new System.Drawing.Size(126, 114);
             // 
             // startWorkToolStripMenuItem
             // 
             this.startWorkToolStripMenuItem.Name = "startWorkToolStripMenuItem";
-            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.startWorkToolStripMenuItem.Text = "Работать";
             this.startWorkToolStripMenuItem.Click += new System.EventHandler(this.btnStartWork_Click);
             // 
             // stopWorkToolStripMenuItem
             // 
             this.stopWorkToolStripMenuItem.Name = "stopWorkToolStripMenuItem";
-            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.stopWorkToolStripMenuItem.Text = "Отдыхать";
             this.stopWorkToolStripMenuItem.Click += new System.EventHandler(this.btnRest_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.pauseToolStripMenuItem.Text = "Пауза";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // стопToolStripMenuItem
             // 
             this.стопToolStripMenuItem.Name = "стопToolStripMenuItem";
-            this.стопToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.стопToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.стопToolStripMenuItem.Text = "Стоп";
             this.стопToolStripMenuItem.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.exitToolStripMenuItem.Text = "Выйти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -134,15 +135,15 @@
             this.pctPomodoro.TabIndex = 5;
             this.pctPomodoro.TabStop = false;
             // 
-            // lblTime
+            // lblMinutes
             // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTime.Location = new System.Drawing.Point(108, 146);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(119, 46);
-            this.lblTime.TabIndex = 3;
-            this.lblTime.Text = "20:00";
+            this.lblMinutes.AutoSize = true;
+            this.lblMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMinutes.Location = new System.Drawing.Point(89, 145);
+            this.lblMinutes.Name = "lblMinutes";
+            this.lblMinutes.Size = new System.Drawing.Size(64, 46);
+            this.lblMinutes.TabIndex = 3;
+            this.lblMinutes.Text = "20";
             // 
             // btnStartWork
             // 
@@ -150,7 +151,7 @@
             this.btnStartWork.Name = "btnStartWork";
             this.btnStartWork.Size = new System.Drawing.Size(70, 22);
             this.btnStartWork.TabIndex = 1;
-            this.btnStartWork.Text = "Работать";
+            this.btnStartWork.Text = "СТАРТ";
             this.btnStartWork.UseVisualStyleBackColor = true;
             this.btnStartWork.Click += new System.EventHandler(this.btnStartWork_Click);
             // 
@@ -160,7 +161,7 @@
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(157, 22);
             this.btnPause.TabIndex = 2;
-            this.btnPause.Text = "Пауза";
+            this.btnPause.Text = "ПАУЗА";
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
@@ -170,7 +171,7 @@
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(81, 22);
             this.btnStop.TabIndex = 6;
-            this.btnStop.Text = "Стоп";
+            this.btnStop.Text = "СТОП";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
@@ -185,13 +186,24 @@
             this.btnRest.Visible = false;
             this.btnRest.Click += new System.EventHandler(this.btnRest_Click);
             // 
+            // lblSeconds
+            // 
+            this.lblSeconds.AutoSize = true;
+            this.lblSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSeconds.Location = new System.Drawing.Point(182, 145);
+            this.lblSeconds.Name = "lblSeconds";
+            this.lblSeconds.Size = new System.Drawing.Size(64, 46);
+            this.lblSeconds.TabIndex = 8;
+            this.lblSeconds.Text = "20";
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 322);
+            this.Controls.Add(this.lblSeconds);
             this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.lblMinutes);
             this.Controls.Add(this.btnRest);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPause);
@@ -218,7 +230,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button btnStartWork;
         private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblMinutes;
         private System.Windows.Forms.Timer MainTimer;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.ImageList imageList1;
@@ -227,6 +239,7 @@
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem стопToolStripMenuItem;
         internal System.Windows.Forms.PictureBox pctPomodoro;
+        private System.Windows.Forms.Label lblSeconds;
     }
 }
 
