@@ -112,11 +112,10 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(20, 12);
+            this.txtDescription.Location = new System.Drawing.Point(12, 293);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(308, 20);
+            this.txtDescription.Size = new System.Drawing.Size(300, 20);
             this.txtDescription.TabIndex = 4;
-            this.txtDescription.Visible = false;
             // 
             // imageList1
             // 
@@ -128,7 +127,7 @@
             // 
             // pctPomodoro
             // 
-            this.pctPomodoro.Location = new System.Drawing.Point(12, 12);
+            this.pctPomodoro.Location = new System.Drawing.Point(12, 0);
             this.pctPomodoro.Name = "pctPomodoro";
             this.pctPomodoro.Size = new System.Drawing.Size(300, 300);
             this.pctPomodoro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,17 +138,19 @@
             // 
             this.lblMinutes.AutoSize = true;
             this.lblMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblMinutes.Location = new System.Drawing.Point(89, 145);
+            this.lblMinutes.Location = new System.Drawing.Point(89, 133);
+            this.lblMinutes.MinimumSize = new System.Drawing.Size(75, 0);
             this.lblMinutes.Name = "lblMinutes";
-            this.lblMinutes.Size = new System.Drawing.Size(64, 46);
+            this.lblMinutes.Size = new System.Drawing.Size(75, 46);
             this.lblMinutes.TabIndex = 3;
             this.lblMinutes.Text = "20";
+            this.lblMinutes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnStartWork
             // 
-            this.btnStartWork.Location = new System.Drawing.Point(89, 204);
+            this.btnStartWork.Location = new System.Drawing.Point(89, 192);
             this.btnStartWork.Name = "btnStartWork";
-            this.btnStartWork.Size = new System.Drawing.Size(70, 22);
+            this.btnStartWork.Size = new System.Drawing.Size(75, 22);
             this.btnStartWork.TabIndex = 1;
             this.btnStartWork.Text = "СТАРТ";
             this.btnStartWork.UseVisualStyleBackColor = true;
@@ -157,7 +158,7 @@
             // 
             // btnPause
             // 
-            this.btnPause.Location = new System.Drawing.Point(89, 232);
+            this.btnPause.Location = new System.Drawing.Point(89, 220);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(157, 22);
             this.btnPause.TabIndex = 2;
@@ -167,9 +168,9 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(165, 204);
+            this.btnStop.Location = new System.Drawing.Point(171, 192);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(81, 22);
+            this.btnStop.Size = new System.Drawing.Size(75, 22);
             this.btnStop.TabIndex = 6;
             this.btnStop.Text = "СТОП";
             this.btnStop.UseVisualStyleBackColor = true;
@@ -177,7 +178,7 @@
             // 
             // btnRest
             // 
-            this.btnRest.Location = new System.Drawing.Point(89, 260);
+            this.btnRest.Location = new System.Drawing.Point(89, 248);
             this.btnRest.Name = "btnRest";
             this.btnRest.Size = new System.Drawing.Size(157, 22);
             this.btnRest.TabIndex = 7;
@@ -190,17 +191,19 @@
             // 
             this.lblSeconds.AutoSize = true;
             this.lblSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSeconds.Location = new System.Drawing.Point(182, 145);
+            this.lblSeconds.Location = new System.Drawing.Point(171, 133);
+            this.lblSeconds.MinimumSize = new System.Drawing.Size(75, 0);
             this.lblSeconds.Name = "lblSeconds";
-            this.lblSeconds.Size = new System.Drawing.Size(64, 46);
+            this.lblSeconds.Size = new System.Drawing.Size(75, 46);
             this.lblSeconds.TabIndex = 8;
             this.lblSeconds.Text = "20";
+            this.lblSeconds.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 322);
+            this.ClientSize = new System.Drawing.Size(326, 318);
             this.Controls.Add(this.lblSeconds);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblMinutes);
@@ -212,7 +215,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Mainform";
-            this.Text = "Метод Помидора";
+            this.Text = "Метод Помидора 0.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mainform_FormClosing);
             this.TrayMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctPomodoro)).EndInit();

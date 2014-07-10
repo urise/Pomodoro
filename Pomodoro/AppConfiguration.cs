@@ -18,5 +18,10 @@ namespace Pomodoro
         {
             get { return int.Parse(ConfigurationManager.AppSettings["LazyTime"]); }
         }
+
+        public static bool ShowDescriptionTextBox
+        {
+            get { return ConfigurationManager.AppSettings["ShowDescriptionTextBox"] == "true"; }
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace Pomodoro
             Dispatcher.OnRestStarted += RestStarted;
             Dispatcher.OnRestEnded += RestEnded;
             Dispatcher.OnStateChanged += StateChanged;
+            txtDescription.Visible = AppConfiguration.ShowDescriptionTextBox;
             MainTimer.Start();
             ShowState();
             SetTime(Dispatcher.TimeText);
