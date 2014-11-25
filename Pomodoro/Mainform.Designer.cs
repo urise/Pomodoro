@@ -47,8 +47,13 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnRest = new System.Windows.Forms.Button();
             this.lblSeconds = new System.Windows.Forms.Label();
+            this.mainMenu = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.TrayMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctPomodoro)).BeginInit();
+            this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tray
@@ -68,40 +73,40 @@
             this.стопToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TrayMenu.Name = "TrayMenu";
-            this.TrayMenu.Size = new System.Drawing.Size(126, 114);
+            this.TrayMenu.Size = new System.Drawing.Size(128, 114);
             // 
             // startWorkToolStripMenuItem
             // 
             this.startWorkToolStripMenuItem.Name = "startWorkToolStripMenuItem";
-            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.startWorkToolStripMenuItem.Text = "Работать";
             this.startWorkToolStripMenuItem.Click += new System.EventHandler(this.btnStartWork_Click);
             // 
             // stopWorkToolStripMenuItem
             // 
             this.stopWorkToolStripMenuItem.Name = "stopWorkToolStripMenuItem";
-            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.stopWorkToolStripMenuItem.Text = "Отдыхать";
             this.stopWorkToolStripMenuItem.Click += new System.EventHandler(this.btnRest_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.pauseToolStripMenuItem.Text = "Пауза";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // стопToolStripMenuItem
             // 
             this.стопToolStripMenuItem.Name = "стопToolStripMenuItem";
-            this.стопToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.стопToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.стопToolStripMenuItem.Text = "Стоп";
             this.стопToolStripMenuItem.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.exitToolStripMenuItem.Text = "Выйти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -199,11 +204,43 @@
             this.lblSeconds.Text = "20";
             this.lblSeconds.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // mainMenu
+            // 
+            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
+            this.mainMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu.Name = "mainMenu";
+            this.mainMenu.Size = new System.Drawing.Size(326, 24);
+            this.mainMenu.TabIndex = 9;
+            this.mainMenu.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(58, 20);
+            this.toolStripMenuItem1.Text = "Settings";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(48, 20);
+            this.toolStripMenuItem2.Text = "About";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(40, 20);
+            this.toolStripMenuItem3.Text = "Help";
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 318);
+            this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.lblSeconds);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblMinutes);
@@ -212,6 +249,7 @@
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnStartWork);
             this.Controls.Add(this.pctPomodoro);
+            this.MainMenuStrip = this.mainMenu;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Mainform";
@@ -219,6 +257,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mainform_FormClosing);
             this.TrayMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctPomodoro)).EndInit();
+            this.mainMenu.ResumeLayout(false);
+            this.mainMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,6 +283,10 @@
         private System.Windows.Forms.ToolStripMenuItem стопToolStripMenuItem;
         internal System.Windows.Forms.PictureBox pctPomodoro;
         private System.Windows.Forms.Label lblSeconds;
+        private System.Windows.Forms.MenuStrip mainMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
 

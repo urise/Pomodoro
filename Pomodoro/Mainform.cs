@@ -20,13 +20,13 @@ namespace Pomodoro
         {
             InitializeComponent();
             
-            Options = new PomodoroOptions(AppConfiguration.WorkingTime, AppConfiguration.LazyTime);
+            Options = new PomodoroOptions(Properties.Settings.Default.WorkingTime, Properties.Settings.Default.LazyTime);
             Dispatcher = new PomodoroDispatcher(Options);
             Dispatcher.OnTimeTextChanged += ShowTime;
             Dispatcher.OnRestStarted += RestStarted;
             Dispatcher.OnRestEnded += RestEnded;
             Dispatcher.OnStateChanged += StateChanged;
-            txtDescription.Visible = AppConfiguration.ShowDescriptionTextBox;
+            txtDescription.Visible = Properties.Settings.Default.ShowDescriptionTextBox;
             MainTimer.Start();
             ShowState();
             SetTime(Dispatcher.TimeText);
@@ -154,6 +154,12 @@ namespace Pomodoro
             var parts = timeText.Split(':');
             lblMinutes.Text = parts[0];
             lblSeconds.Text = parts[1];
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var settings = new Settings();
+            settings.ShowDialog();
         }
     }
 }
