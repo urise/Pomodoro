@@ -22,41 +22,5 @@ namespace Pomodoro.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("20")]
-        public int WorkingTime {
-            get {
-                return ((int)(this["WorkingTime"]));
-            }
-            set {
-                this["WorkingTime"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int LazyTime {
-            get {
-                return ((int)(this["LazyTime"]));
-            }
-            set {
-                this["LazyTime"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ShowDescriptionTextBox {
-            get {
-                return ((bool)(this["ShowDescriptionTextBox"]));
-            }
-            set {
-                this["ShowDescriptionTextBox"] = value;
-            }
-        }
     }
 }
