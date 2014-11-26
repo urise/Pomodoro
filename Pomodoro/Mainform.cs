@@ -20,13 +20,13 @@ namespace Pomodoro
         {
             InitializeComponent();
             
-            Options = new PomodoroOptions(Properties.Settings.Default.WorkingTime, Properties.Settings.Default.LazyTime);
+            Options = new PomodoroOptions(AppConfiguration.WorkingTime, AppConfiguration.LazyTime);
             Dispatcher = new PomodoroDispatcher(Options);
             Dispatcher.OnTimeTextChanged += ShowTime;
             Dispatcher.OnRestStarted += RestStarted;
             Dispatcher.OnRestEnded += RestEnded;
             Dispatcher.OnStateChanged += StateChanged;
-            txtDescription.Visible = Properties.Settings.Default.ShowDescriptionTextBox;
+            txtDescription.Visible = AppConfiguration.ShowDescriptionTextBox;
             MainTimer.Start();
             ShowState();
             SetTime(Dispatcher.TimeText);

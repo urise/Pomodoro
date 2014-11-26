@@ -41,6 +41,7 @@ namespace BusinessLogic
         public PomodoroDispatcher(PomodoroOptions options)
         {
             Options = options;
+            SecondsTillEnd = Options.WorkingTime*SecondsInMinute;
         }
 
         public void TickOneSecond()

@@ -65,6 +65,11 @@ namespace BusinessLogic
             return _dict.Select(r => r.Key + '=' + r.Value).ToList();
         }
 
+        public void Save(string fileName)
+        {
+            File.WriteAllLines(fileName, GetIniLines());
+        }
+
         #endregion
 
         #region Private Members
