@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IniConfig.cs" />
     <Compile Include="PomodoroDispatcher.cs" />
     <Compile Include="PomodoroOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
