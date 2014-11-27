@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Pomodoro
 {
@@ -17,12 +18,42 @@ namespace Pomodoro
             InitializeComponent();
             trackWorkingTime.Value = AppConfiguration.WorkingTime;
             trackLazyTime.Value = AppConfiguration.LazyTime;
-            SetEnables();
+            txtCycleCount.Text = AppConfiguration.CycleCount.ToString();
+            txtCycleDuration.Text = AppConfiguration.CycleDuration.ToString();
+            if (AppConfiguration.CycleEndTime < DateTime.Now)
+                AppConfiguration.CycleEndTime = DateTime.Now;
+            dtCycleEndTime.Value = AppConfiguration.CycleEndTime;
             SetCycleRadioButtons();
+            SetEnables();
+        }
+
+        private void ValidateInput()
+        {
+            if (trackWorkingTime.Value == 0)
+                throw new Exception("Рабочее время не может быть равно нулю");
+            if (trackLazyTime.Value == 0)
+                throw new Exception("Время отдыха не может быть равно нулю");
+            int value;
+            if (rbCyclesByCount.Checked && 
+                (!int.TryParse(txtCycleCount.Text, out value) || value <= 0))
+                throw new Exception("Количество циклов должно быть целым числом больше нуля");
+            if (rbCyclesByDuration.Checked &&
+                (!int.TryParse(txtCycleDuration.Text, out value) || value <= 0))
+                throw new Exception("Количество минут должно быть целым числом больше нуля");
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ValidateInput();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
             AppConfiguration.WorkingTime = trackWorkingTime.Value;
             AppConfiguration.LazyTime = trackLazyTime.Value;
             AppConfiguration.CycleSetting = GetCycleSetting();

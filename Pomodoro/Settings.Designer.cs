@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblLazyTime = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.trackLazyTime = new System.Windows.Forms.TrackBar();
+            this.lblWorkingTime = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.trackWorkingTime = new System.Windows.Forms.TrackBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblWorkingTime = new System.Windows.Forms.Label();
-            this.lblLazyTime = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.trackLazyTime = new System.Windows.Forms.TrackBar();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.rbNoCycle = new System.Windows.Forms.RadioButton();
-            this.rbEndlessCycle = new System.Windows.Forms.RadioButton();
-            this.rbCyclesByCount = new System.Windows.Forms.RadioButton();
-            this.rbCyclesByDuration = new System.Windows.Forms.RadioButton();
-            this.rbCycleUntilTime = new System.Windows.Forms.RadioButton();
-            this.txtCycleCount = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dtCycleEndTime = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCycleDuration = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtCycleDuration = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtCycleEndTime = new System.Windows.Forms.DateTimePicker();
+            this.txtCycleCount = new System.Windows.Forms.TextBox();
+            this.rbCycleUntilTime = new System.Windows.Forms.RadioButton();
+            this.rbCyclesByDuration = new System.Windows.Forms.RadioButton();
+            this.rbCyclesByCount = new System.Windows.Forms.RadioButton();
+            this.rbEndlessCycle = new System.Windows.Forms.RadioButton();
+            this.rbNoCycle = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackLazyTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackWorkingTime)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackLazyTime)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,47 @@
             this.panel1.Size = new System.Drawing.Size(507, 90);
             this.panel1.TabIndex = 0;
             // 
+            // lblLazyTime
+            // 
+            this.lblLazyTime.AutoSize = true;
+            this.lblLazyTime.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblLazyTime.Location = new System.Drawing.Point(422, 46);
+            this.lblLazyTime.Name = "lblLazyTime";
+            this.lblLazyTime.Size = new System.Drawing.Size(61, 19);
+            this.lblLazyTime.TabIndex = 5;
+            this.lblLazyTime.Text = "0 минут";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(10, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 19);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Время отдыха";
+            // 
+            // trackLazyTime
+            // 
+            this.trackLazyTime.Location = new System.Drawing.Point(119, 46);
+            this.trackLazyTime.Maximum = 60;
+            this.trackLazyTime.Name = "trackLazyTime";
+            this.trackLazyTime.Size = new System.Drawing.Size(297, 42);
+            this.trackLazyTime.TabIndex = 3;
+            this.trackLazyTime.TickFrequency = 5;
+            this.trackLazyTime.Value = 5;
+            this.trackLazyTime.ValueChanged += new System.EventHandler(this.trackLazyTime_ValueChanged);
+            // 
+            // lblWorkingTime
+            // 
+            this.lblWorkingTime.AutoSize = true;
+            this.lblWorkingTime.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblWorkingTime.Location = new System.Drawing.Point(422, 7);
+            this.lblWorkingTime.Name = "lblWorkingTime";
+            this.lblWorkingTime.Size = new System.Drawing.Size(61, 19);
+            this.lblWorkingTime.TabIndex = 2;
+            this.lblWorkingTime.Text = "0 минут";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -88,7 +129,6 @@
             // 
             this.trackWorkingTime.Location = new System.Drawing.Point(119, 7);
             this.trackWorkingTime.Maximum = 60;
-            this.trackWorkingTime.Minimum = 5;
             this.trackWorkingTime.Name = "trackWorkingTime";
             this.trackWorkingTime.Size = new System.Drawing.Size(297, 42);
             this.trackWorkingTime.TabIndex = 0;
@@ -139,47 +179,14 @@
             this.panel3.Size = new System.Drawing.Size(507, 154);
             this.panel3.TabIndex = 2;
             // 
-            // lblWorkingTime
+            // panel5
             // 
-            this.lblWorkingTime.AutoSize = true;
-            this.lblWorkingTime.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWorkingTime.Location = new System.Drawing.Point(422, 7);
-            this.lblWorkingTime.Name = "lblWorkingTime";
-            this.lblWorkingTime.Size = new System.Drawing.Size(61, 19);
-            this.lblWorkingTime.TabIndex = 2;
-            this.lblWorkingTime.Text = "0 минут";
-            // 
-            // lblLazyTime
-            // 
-            this.lblLazyTime.AutoSize = true;
-            this.lblLazyTime.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblLazyTime.Location = new System.Drawing.Point(422, 46);
-            this.lblLazyTime.Name = "lblLazyTime";
-            this.lblLazyTime.Size = new System.Drawing.Size(61, 19);
-            this.lblLazyTime.TabIndex = 5;
-            this.lblLazyTime.Text = "0 минут";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(10, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Время отдыха";
-            // 
-            // trackLazyTime
-            // 
-            this.trackLazyTime.Location = new System.Drawing.Point(119, 46);
-            this.trackLazyTime.Maximum = 60;
-            this.trackLazyTime.Minimum = 5;
-            this.trackLazyTime.Name = "trackLazyTime";
-            this.trackLazyTime.Size = new System.Drawing.Size(297, 42);
-            this.trackLazyTime.TabIndex = 3;
-            this.trackLazyTime.TickFrequency = 5;
-            this.trackLazyTime.Value = 5;
-            this.trackLazyTime.ValueChanged += new System.EventHandler(this.trackLazyTime_ValueChanged);
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(336, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(167, 150);
+            this.panel5.TabIndex = 1;
             // 
             // panel4
             // 
@@ -200,57 +207,49 @@
             this.panel4.Size = new System.Drawing.Size(336, 150);
             this.panel4.TabIndex = 0;
             // 
-            // rbNoCycle
+            // label4
             // 
-            this.rbNoCycle.AutoSize = true;
-            this.rbNoCycle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbNoCycle.Location = new System.Drawing.Point(12, 3);
-            this.rbNoCycle.Name = "rbNoCycle";
-            this.rbNoCycle.Size = new System.Drawing.Size(88, 22);
-            this.rbNoCycle.TabIndex = 0;
-            this.rbNoCycle.TabStop = true;
-            this.rbNoCycle.Text = "Без цикла";
-            this.rbNoCycle.UseVisualStyleBackColor = true;
-            this.rbNoCycle.Click += new System.EventHandler(this.rbNoCycle_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(280, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 18);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "минут";
             // 
-            // rbEndlessCycle
+            // txtCycleDuration
             // 
-            this.rbEndlessCycle.AutoSize = true;
-            this.rbEndlessCycle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbEndlessCycle.Location = new System.Drawing.Point(12, 31);
-            this.rbEndlessCycle.Name = "rbEndlessCycle";
-            this.rbEndlessCycle.Size = new System.Drawing.Size(142, 22);
-            this.rbEndlessCycle.TabIndex = 1;
-            this.rbEndlessCycle.TabStop = true;
-            this.rbEndlessCycle.Text = "Бесконечный цикл";
-            this.rbEndlessCycle.UseVisualStyleBackColor = true;
-            this.rbEndlessCycle.Click += new System.EventHandler(this.rbNoCycle_Click);
+            this.txtCycleDuration.Location = new System.Drawing.Point(219, 89);
+            this.txtCycleDuration.Name = "txtCycleDuration";
+            this.txtCycleDuration.Size = new System.Drawing.Size(55, 20);
+            this.txtCycleDuration.TabIndex = 8;
             // 
-            // rbCyclesByCount
+            // label2
             // 
-            this.rbCyclesByCount.AutoSize = true;
-            this.rbCyclesByCount.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbCyclesByCount.Location = new System.Drawing.Point(12, 59);
-            this.rbCyclesByCount.Name = "rbCyclesByCount";
-            this.rbCyclesByCount.Size = new System.Drawing.Size(154, 22);
-            this.rbCyclesByCount.TabIndex = 2;
-            this.rbCyclesByCount.TabStop = true;
-            this.rbCyclesByCount.Text = "Остановиться после";
-            this.rbCyclesByCount.UseVisualStyleBackColor = true;
-            this.rbCyclesByCount.Click += new System.EventHandler(this.rbNoCycle_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(233, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 18);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "циклов";
             // 
-            // rbCyclesByDuration
+            // dtCycleEndTime
             // 
-            this.rbCyclesByDuration.AutoSize = true;
-            this.rbCyclesByDuration.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbCyclesByDuration.Location = new System.Drawing.Point(12, 87);
-            this.rbCyclesByDuration.Name = "rbCyclesByDuration";
-            this.rbCyclesByDuration.Size = new System.Drawing.Size(201, 22);
-            this.rbCyclesByDuration.TabIndex = 3;
-            this.rbCyclesByDuration.TabStop = true;
-            this.rbCyclesByDuration.Text = "Остановиться по истечении";
-            this.rbCyclesByDuration.UseVisualStyleBackColor = true;
-            this.rbCyclesByDuration.Click += new System.EventHandler(this.rbNoCycle_Click);
+            this.dtCycleEndTime.CustomFormat = "HH:mm";
+            this.dtCycleEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtCycleEndTime.Location = new System.Drawing.Point(142, 114);
+            this.dtCycleEndTime.Name = "dtCycleEndTime";
+            this.dtCycleEndTime.ShowUpDown = true;
+            this.dtCycleEndTime.Size = new System.Drawing.Size(85, 20);
+            this.dtCycleEndTime.TabIndex = 6;
+            // 
+            // txtCycleCount
+            // 
+            this.txtCycleCount.Location = new System.Drawing.Point(172, 61);
+            this.txtCycleCount.Name = "txtCycleCount";
+            this.txtCycleCount.Size = new System.Drawing.Size(55, 20);
+            this.txtCycleCount.TabIndex = 5;
             // 
             // rbCycleUntilTime
             // 
@@ -265,58 +264,57 @@
             this.rbCycleUntilTime.UseVisualStyleBackColor = true;
             this.rbCycleUntilTime.Click += new System.EventHandler(this.rbNoCycle_Click);
             // 
-            // txtCycleCount
+            // rbCyclesByDuration
             // 
-            this.txtCycleCount.Location = new System.Drawing.Point(172, 61);
-            this.txtCycleCount.Name = "txtCycleCount";
-            this.txtCycleCount.Size = new System.Drawing.Size(55, 20);
-            this.txtCycleCount.TabIndex = 5;
+            this.rbCyclesByDuration.AutoSize = true;
+            this.rbCyclesByDuration.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rbCyclesByDuration.Location = new System.Drawing.Point(12, 87);
+            this.rbCyclesByDuration.Name = "rbCyclesByDuration";
+            this.rbCyclesByDuration.Size = new System.Drawing.Size(201, 22);
+            this.rbCyclesByDuration.TabIndex = 3;
+            this.rbCyclesByDuration.TabStop = true;
+            this.rbCyclesByDuration.Text = "Остановиться по истечении";
+            this.rbCyclesByDuration.UseVisualStyleBackColor = true;
+            this.rbCyclesByDuration.Click += new System.EventHandler(this.rbNoCycle_Click);
             // 
-            // panel5
+            // rbCyclesByCount
             // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(336, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(167, 150);
-            this.panel5.TabIndex = 1;
+            this.rbCyclesByCount.AutoSize = true;
+            this.rbCyclesByCount.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rbCyclesByCount.Location = new System.Drawing.Point(12, 59);
+            this.rbCyclesByCount.Name = "rbCyclesByCount";
+            this.rbCyclesByCount.Size = new System.Drawing.Size(154, 22);
+            this.rbCyclesByCount.TabIndex = 2;
+            this.rbCyclesByCount.TabStop = true;
+            this.rbCyclesByCount.Text = "Остановиться после";
+            this.rbCyclesByCount.UseVisualStyleBackColor = true;
+            this.rbCyclesByCount.Click += new System.EventHandler(this.rbNoCycle_Click);
             // 
-            // dtCycleEndTime
+            // rbEndlessCycle
             // 
-            this.dtCycleEndTime.CustomFormat = "HH:mm";
-            this.dtCycleEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtCycleEndTime.Location = new System.Drawing.Point(142, 114);
-            this.dtCycleEndTime.Name = "dtCycleEndTime";
-            this.dtCycleEndTime.ShowUpDown = true;
-            this.dtCycleEndTime.Size = new System.Drawing.Size(85, 20);
-            this.dtCycleEndTime.TabIndex = 6;
+            this.rbEndlessCycle.AutoSize = true;
+            this.rbEndlessCycle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rbEndlessCycle.Location = new System.Drawing.Point(12, 31);
+            this.rbEndlessCycle.Name = "rbEndlessCycle";
+            this.rbEndlessCycle.Size = new System.Drawing.Size(142, 22);
+            this.rbEndlessCycle.TabIndex = 1;
+            this.rbEndlessCycle.TabStop = true;
+            this.rbEndlessCycle.Text = "Бесконечный цикл";
+            this.rbEndlessCycle.UseVisualStyleBackColor = true;
+            this.rbEndlessCycle.Click += new System.EventHandler(this.rbNoCycle_Click);
             // 
-            // label2
+            // rbNoCycle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(233, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 18);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "циклов";
-            // 
-            // txtCycleDuration
-            // 
-            this.txtCycleDuration.Location = new System.Drawing.Point(219, 89);
-            this.txtCycleDuration.Name = "txtCycleDuration";
-            this.txtCycleDuration.Size = new System.Drawing.Size(55, 20);
-            this.txtCycleDuration.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(280, 91);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 18);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "минут";
+            this.rbNoCycle.AutoSize = true;
+            this.rbNoCycle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rbNoCycle.Location = new System.Drawing.Point(12, 3);
+            this.rbNoCycle.Name = "rbNoCycle";
+            this.rbNoCycle.Size = new System.Drawing.Size(88, 22);
+            this.rbNoCycle.TabIndex = 0;
+            this.rbNoCycle.TabStop = true;
+            this.rbNoCycle.Text = "Без цикла";
+            this.rbNoCycle.UseVisualStyleBackColor = true;
+            this.rbNoCycle.Click += new System.EventHandler(this.rbNoCycle_Click);
             // 
             // Settings
             // 
@@ -334,10 +332,10 @@
             this.Text = "Settings";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackLazyTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackWorkingTime)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackLazyTime)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
