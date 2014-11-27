@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 using BusinessLogic;
 
 namespace Pomodoro
@@ -24,7 +25,8 @@ namespace Pomodoro
         private const int DEFAULT_LAZY_TIME = 10;
         private const bool DEFAULT_SHOW_DESCRIPTION = false;
         private const CycleSettingEnum DEFAULT_CYCLE_SETTING = CycleSettingEnum.NoCycle;
-
+        private const int DEFAULT_CYCLE_COUNT = 5;
+        private const int DEFAULT_CYCLE_DURATION = 90;
 
         private static IniConfig _config;
         private static IniConfig Config
@@ -77,6 +79,28 @@ namespace Pomodoro
             }
             set { Config["Cycling"] = value.ToString(); }
         }
+
+        public static int CycleCount
+        {
+            get
+            {
+                var configValue = Config["CycleCount"];
+                return string.IsNullOrEmpty(configValue) ? DEFAULT_CYCLE_COUNT : int.Parse(configValue);
+            }
+            set { Config["CycleCount"] = value.ToString(); }
+        }
+
+        public static int CycleDuration
+        {
+            get
+            {
+                var configValue = Config["CycleDuration"];
+                return string.IsNullOrEmpty(configValue) ? DEFAULT_CYCLE_DURATION : int.Parse(configValue);
+            }
+            set { Config["CycleDuration"] = value.ToString(); }
+        }
+
+        public static DateTime CycleEndTime { get; set; }
 
         public static void Save()
         {
