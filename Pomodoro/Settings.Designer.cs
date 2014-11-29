@@ -51,11 +51,14 @@
             this.rbCyclesByCount = new System.Windows.Forms.RadioButton();
             this.rbEndlessCycle = new System.Windows.Forms.RadioButton();
             this.rbNoCycle = new System.Windows.Forms.RadioButton();
+            this.cbShowWindow = new System.Windows.Forms.CheckBox();
+            this.cbPlaySound = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackLazyTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackWorkingTime)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,14 +74,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(507, 90);
+            this.panel1.Size = new System.Drawing.Size(577, 90);
             this.panel1.TabIndex = 0;
             // 
             // lblLazyTime
             // 
+            this.lblLazyTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLazyTime.AutoSize = true;
             this.lblLazyTime.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblLazyTime.Location = new System.Drawing.Point(422, 46);
+            this.lblLazyTime.Location = new System.Drawing.Point(499, 46);
             this.lblLazyTime.Name = "lblLazyTime";
             this.lblLazyTime.Size = new System.Drawing.Size(61, 19);
             this.lblLazyTime.TabIndex = 5;
@@ -96,10 +100,12 @@
             // 
             // trackLazyTime
             // 
+            this.trackLazyTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackLazyTime.Location = new System.Drawing.Point(119, 46);
             this.trackLazyTime.Maximum = 60;
             this.trackLazyTime.Name = "trackLazyTime";
-            this.trackLazyTime.Size = new System.Drawing.Size(297, 42);
+            this.trackLazyTime.Size = new System.Drawing.Size(374, 42);
             this.trackLazyTime.TabIndex = 3;
             this.trackLazyTime.TickFrequency = 5;
             this.trackLazyTime.Value = 5;
@@ -107,9 +113,10 @@
             // 
             // lblWorkingTime
             // 
+            this.lblWorkingTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWorkingTime.AutoSize = true;
             this.lblWorkingTime.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWorkingTime.Location = new System.Drawing.Point(422, 7);
+            this.lblWorkingTime.Location = new System.Drawing.Point(499, 7);
             this.lblWorkingTime.Name = "lblWorkingTime";
             this.lblWorkingTime.Size = new System.Drawing.Size(61, 19);
             this.lblWorkingTime.TabIndex = 2;
@@ -127,10 +134,12 @@
             // 
             // trackWorkingTime
             // 
+            this.trackWorkingTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackWorkingTime.Location = new System.Drawing.Point(119, 7);
             this.trackWorkingTime.Maximum = 60;
             this.trackWorkingTime.Name = "trackWorkingTime";
-            this.trackWorkingTime.Size = new System.Drawing.Size(297, 42);
+            this.trackWorkingTime.Size = new System.Drawing.Size(374, 42);
             this.trackWorkingTime.TabIndex = 0;
             this.trackWorkingTime.TickFrequency = 5;
             this.trackWorkingTime.Value = 5;
@@ -143,13 +152,13 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 244);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(507, 47);
+            this.panel2.Size = new System.Drawing.Size(577, 47);
             this.panel2.TabIndex = 1;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(428, 12);
+            this.btnCancel.Location = new System.Drawing.Point(498, 12);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -160,7 +169,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(347, 12);
+            this.btnOk.Location = new System.Drawing.Point(417, 12);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 0;
@@ -176,16 +185,18 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 90);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(507, 154);
+            this.panel3.Size = new System.Drawing.Size(577, 154);
             this.panel3.TabIndex = 2;
             // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.cbPlaySound);
+            this.panel5.Controls.Add(this.cbShowWindow);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(336, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(167, 150);
+            this.panel5.Size = new System.Drawing.Size(237, 150);
             this.panel5.TabIndex = 1;
             // 
             // panel4
@@ -316,11 +327,31 @@
             this.rbNoCycle.UseVisualStyleBackColor = true;
             this.rbNoCycle.Click += new System.EventHandler(this.rbNoCycle_Click);
             // 
+            // cbShowWindow
+            // 
+            this.cbShowWindow.AutoSize = true;
+            this.cbShowWindow.Location = new System.Drawing.Point(16, 8);
+            this.cbShowWindow.Name = "cbShowWindow";
+            this.cbShowWindow.Size = new System.Drawing.Size(190, 17);
+            this.cbShowWindow.TabIndex = 0;
+            this.cbShowWindow.Text = "Открывать окно в конце отдыха";
+            this.cbShowWindow.UseVisualStyleBackColor = true;
+            // 
+            // cbPlaySound
+            // 
+            this.cbPlaySound.AutoSize = true;
+            this.cbPlaySound.Location = new System.Drawing.Point(16, 36);
+            this.cbPlaySound.Name = "cbPlaySound";
+            this.cbPlaySound.Size = new System.Drawing.Size(126, 17);
+            this.cbPlaySound.TabIndex = 1;
+            this.cbPlaySound.Text = "Проигрывать звуки";
+            this.cbPlaySound.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 291);
+            this.ClientSize = new System.Drawing.Size(577, 291);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -336,6 +367,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackWorkingTime)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -367,5 +400,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCycleDuration;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cbPlaySound;
+        private System.Windows.Forms.CheckBox cbShowWindow;
     }
 }

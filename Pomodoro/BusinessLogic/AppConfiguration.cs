@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
-using BusinessLogic;
 
-namespace Pomodoro
+namespace BusinessLogic
 {
     public enum CycleSettingEnum
     {
@@ -17,6 +10,13 @@ namespace Pomodoro
         CyclesByCount,
         CyclesByDuration,
         CyclesUntilTime
+    }
+    public enum PomodoroState
+    {
+        Stopped,
+        WorkStarted,
+        RestStarted,
+        Paused
     }
     public static class AppConfiguration
     {
@@ -27,6 +27,8 @@ namespace Pomodoro
         private const CycleSettingEnum DEFAULT_CYCLE_SETTING = CycleSettingEnum.NoCycle;
         private const int DEFAULT_CYCLE_COUNT = 5;
         private const int DEFAULT_CYCLE_DURATION = 90;
+        private const bool DEFAULT_PLAY_SOUND = true;
+        private const bool DEFAULT_SHOW_WINDOW = true;
 
         private static IniConfig _config;
         private static IniConfig Config
@@ -63,7 +65,7 @@ namespace Pomodoro
             get
             {
                 var configValue = Config["ShowDescriptionTextBox"];
-                return string.IsNullOrEmpty(configValue) ? DEFAULT_SHOW_DESCRIPTION : (configValue == "true");
+                return string.IsNullOrEmpty(configValue) ? DEFAULT_SHOW_DESCRIPTION : (configValue.ToLower() == "true");
             }
             set { Config["ShowDescriptionTextBox"] = value.ToString(); }
         }
@@ -105,6 +107,24 @@ namespace Pomodoro
         public static void Save()
         {
             Config.Save(INI_FILE_NAME);
+        }
+        public static bool PlaySound
+        {
+            get
+            {
+                var configValue = Config["PlaySound"];
+                return string.IsNullOrEmpty(configValue) ? DEFAULT_PLAY_SOUND : (configValue.ToLower() == "true");
+            }
+            set { Config["PlaySound"] = value.ToString(); }
+        }
+        public static bool ShowWindow
+        {
+            get
+            {
+                var configValue = Config["ShowWindow"];
+                return string.IsNullOrEmpty(configValue) ? DEFAULT_SHOW_WINDOW : (configValue.ToLower() == "true");
+            }
+            set { Config["ShowWindow"] = value.ToString(); }
         }
     }
 }

@@ -8,9 +8,11 @@ namespace BusinessLogic
 {
     public class PomodoroDispatcher
     {
-        private PomodoroOptions Options { get; set; }
-
         private PomodoroState _state = PomodoroState.Stopped;
+
+        private DateTime _startTime;
+
+        private int _cyclesCount;
 
         public PomodoroState State
         {
@@ -31,17 +33,14 @@ namespace BusinessLogic
 
         public EventHandler OnStateChanged;
 
-        private const int SecondsInMinute = 60;
+        private int GetSeconds(int minutes)
+        {
+            return minutes;
+        }
 
         public string TimeText
         {
             get { return (SecondsTillEnd/60).ToString("00") + ":" + (SecondsTillEnd%60).ToString("00"); }
-        }
-
-        public PomodoroDispatcher(PomodoroOptions options)
-        {
-            Options = options;
-            SecondsTillEnd = Options.WorkingTime*SecondsInMinute;
         }
 
         public void TickOneSecond()
@@ -51,7 +50,7 @@ namespace BusinessLogic
                 case PomodoroState.WorkStarted:
                     if (--SecondsTillEnd <= 0)
                     {
-                        SecondsTillEnd = Options.RestTime*SecondsInMinute;
+                        SecondsTillEnd = GetSeconds(AppConfiguration.LazyTime);
                         State = PomodoroState.RestStarted;
                         OnRestStarted(this, new EventArgs());
                     }
@@ -60,7 +59,7 @@ namespace BusinessLogic
                 case PomodoroState.RestStarted:
                     if (--SecondsTillEnd <= 0)
                     {
-                        State = PomodoroState.Stopped;
+                        CycleEnd();
                         OnRestEnded(this, new EventArgs());
                     }
                     OnTimeTextChanged(this, new EventArgs());
@@ -70,8 +69,9 @@ namespace BusinessLogic
 
         public void Start()
         {
-            SecondsTillEnd = Options.WorkingTime*SecondsInMinute;
-            State = PomodoroState.WorkStarted;
+            _cyclesCount = 0;
+            _startTime = DateTime.Now;
+            StartNextCycle();
         }
 
         public void Pause()
@@ -92,7 +92,45 @@ namespace BusinessLogic
         public void Rest()
         {
             State = PomodoroState.RestStarted;
-            SecondsTillEnd = Options.RestTime*SecondsInMinute;
+            SecondsTillEnd = GetSeconds(AppConfiguration.LazyTime);
+        }
+
+        private void StartNextCycle()
+        {
+            _cyclesCount++;
+            State = PomodoroState.WorkStarted;
+            SecondsTillEnd = GetSeconds(AppConfiguration.WorkingTime);
+        }
+
+        private void CycleEnd()
+        {
+            switch (AppConfiguration.CycleSetting)
+            {
+                case CycleSettingEnum.NoCycle:
+                    State = PomodoroState.Stopped;
+                    break;
+                case CycleSettingEnum.EndlessCycle:
+                    StartNextCycle();
+                    break;
+                case CycleSettingEnum.CyclesByCount:
+                    if (_cyclesCount >= AppConfiguration.CycleCount)
+                        State = PomodoroState.Stopped;
+                    else
+                        StartNextCycle();
+                    break;
+                case CycleSettingEnum.CyclesByDuration:
+                    if ((DateTime.Now - _startTime).TotalMinutes >= AppConfiguration.CycleDuration)
+                        State = PomodoroState.Stopped;
+                    else
+                        StartNextCycle();
+                    break;
+                case CycleSettingEnum.CyclesUntilTime:
+                    if (DateTime.Now >= AppConfiguration.CycleEndTime)
+                        State = PomodoroState.Stopped;
+                    else
+                        StartNextCycle();
+                    break;
+            }
         }
     }
 }

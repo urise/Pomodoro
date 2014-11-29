@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using BusinessLogic;
 
 namespace Pomodoro
 {
@@ -23,6 +24,8 @@ namespace Pomodoro
             if (AppConfiguration.CycleEndTime < DateTime.Now)
                 AppConfiguration.CycleEndTime = DateTime.Now;
             dtCycleEndTime.Value = AppConfiguration.CycleEndTime;
+            cbPlaySound.Checked = AppConfiguration.PlaySound;
+            cbShowWindow.Checked = AppConfiguration.ShowWindow;
             SetCycleRadioButtons();
             SetEnables();
         }
@@ -57,6 +60,14 @@ namespace Pomodoro
             AppConfiguration.WorkingTime = trackWorkingTime.Value;
             AppConfiguration.LazyTime = trackLazyTime.Value;
             AppConfiguration.CycleSetting = GetCycleSetting();
+            if (rbCyclesByCount.Checked)
+                AppConfiguration.CycleCount = int.Parse(txtCycleCount.Text);
+            if (rbCyclesByDuration.Checked)
+                AppConfiguration.CycleDuration = int.Parse(txtCycleDuration.Text);
+            if (rbCycleUntilTime.Checked)
+                AppConfiguration.CycleEndTime = dtCycleEndTime.Value;
+            AppConfiguration.PlaySound = cbPlaySound.Checked;
+            AppConfiguration.ShowWindow = cbShowWindow.Checked;
             AppConfiguration.Save();
             Close();
             DialogResult = DialogResult.OK;

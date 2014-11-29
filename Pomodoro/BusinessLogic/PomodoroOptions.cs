@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public enum PomodoroState
-    {
-        Stopped,
-        WorkStarted,
-        RestStarted,
-        Paused
-    }
+    
     public class PomodoroOptions
     {
         public int WorkingTime { get; private set; }

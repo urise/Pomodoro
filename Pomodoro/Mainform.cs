@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,13 @@ namespace Pomodoro
 {
     public partial class Mainform : Form
     {
-        private PomodoroOptions Options { get; set; }
         private PomodoroDispatcher Dispatcher { get; set; }
 
         public Mainform()
         {
             InitializeComponent();
             
-            Options = new PomodoroOptions(AppConfiguration.WorkingTime, AppConfiguration.LazyTime);
-            Dispatcher = new PomodoroDispatcher(Options);
+            Dispatcher = new PomodoroDispatcher();
             Dispatcher.OnTimeTextChanged += ShowTime;
             Dispatcher.OnRestStarted += RestStarted;
             Dispatcher.OnRestEnded += RestEnded;
@@ -84,6 +83,7 @@ namespace Pomodoro
         private void StateChanged(object sender, EventArgs e)
         {
             ShowState();
+            PlaySound();
         }
 
         private string GetImageFileName(string extension)
@@ -105,6 +105,30 @@ namespace Pomodoro
             Tray.Icon = new Icon(GetImageFileName("ico"));
         }
 
+        private string GetSoundFileName()
+        {
+            switch (Dispatcher.State)
+            {
+                case PomodoroState.WorkStarted:
+                    return "StartWork.wav";
+                case PomodoroState.RestStarted:
+                    return "StartRest.wav";
+                case PomodoroState.Stopped:
+                    return "Stop.wav";
+            }
+            return string.Empty;
+        }
+        private void PlaySound()
+        {
+            if (!AppConfiguration.PlaySound) return;
+            var soundFileName = @"sounds\" + GetSoundFileName();
+            if (!File.Exists(soundFileName))
+                soundFileName = @"sounds\Default" + GetSoundFileName();
+            if (!File.Exists(soundFileName)) return;
+            var player = new System.Media.SoundPlayer(soundFileName);
+            player.Play();
+        }
+
         private void ShowTime(object sender, EventArgs e)
         {
             SetTime(Dispatcher.TimeText);
@@ -113,12 +137,14 @@ namespace Pomodoro
 
         private void RestStarted(object sender, EventArgs e)
         {
-            ShowForm();
+            if (AppConfiguration.ShowWindow) 
+                ShowForm();
         }
 
         private void RestEnded(object sender, EventArgs e)
         {
-            ShowForm();
+            if (AppConfiguration.ShowWindow)
+                ShowForm();
         }
 
         private void btnRest_Click(object sender, EventArgs e)
