@@ -25,10 +25,11 @@ namespace Pomodoro
             Dispatcher.OnRestStarted += RestStarted;
             Dispatcher.OnRestEnded += RestEnded;
             Dispatcher.OnStateChanged += StateChanged;
-            txtDescription.Visible = AppConfiguration.ShowDescriptionTextBox;
             MainTimer.Start();
             ShowState();
-            SetTime(Dispatcher.TimeText);
+            SetElements();
+            SetDefaultTime();
+            txtDescription.Visible = AppConfiguration.ShowDescriptionTextBox;
         }
 
         private void ShowForm()
@@ -72,7 +73,7 @@ namespace Pomodoro
         private void btnStopWork_Click(object sender, EventArgs e)
         {
             Dispatcher.Stop();
-            SetTime("00:00");
+            SetDefaultTime();
         }
 
         private void MainTimer_Tick(object sender, EventArgs e)
@@ -83,6 +84,8 @@ namespace Pomodoro
         private void StateChanged(object sender, EventArgs e)
         {
             ShowState();
+            txtDescription.Enabled = Dispatcher.State == PomodoroState.RestStarted ||
+                                     Dispatcher.State == PomodoroState.Stopped;
             PlaySound();
         }
 
@@ -103,6 +106,11 @@ namespace Pomodoro
         {
             pctPomodoro.ImageLocation = GetImageFileName("png");
             Tray.Icon = new Icon(GetImageFileName("ico"));
+        }
+
+        private void SetElements()
+        {
+            txtDescription.Visible = AppConfiguration.ShowDescriptionTextBox;
         }
 
         private string GetSoundFileName()
@@ -131,8 +139,9 @@ namespace Pomodoro
 
         private void ShowTime(object sender, EventArgs e)
         {
-            SetTime(Dispatcher.TimeText);
-            Tray.Text = Dispatcher.TimeText + " " + txtDescription.Text;
+            var timeText = Dispatcher.TimeText;
+            SetTime(timeText);
+            Tray.Text = timeText + " " + txtDescription.Text;
         }
 
         private void RestStarted(object sender, EventArgs e)
@@ -155,7 +164,7 @@ namespace Pomodoro
         private void btnStop_Click(object sender, EventArgs e)
         {
             Dispatcher.Stop();
-            SetTime("00:00");
+            SetDefaultTime();
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -182,10 +191,22 @@ namespace Pomodoro
             lblSeconds.Text = parts[1];
         }
 
+        private void SetTime(int minutes, int seconds = 0)
+        {
+            lblMinutes.Text = minutes.ToString("00");
+            lblSeconds.Text = seconds.ToString("00");
+        }
+
+        private void SetDefaultTime()
+        {
+            SetTime(AppConfiguration.WorkingTime);
+        }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var settings = new Settings();
             settings.ShowDialog();
+            SetElements();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace BusinessLogic
 
         private int GetSeconds(int minutes)
         {
-            return minutes;
+            return minutes * 60;
         }
 
         public string TimeText

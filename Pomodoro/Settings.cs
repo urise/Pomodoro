@@ -26,6 +26,7 @@ namespace Pomodoro
             dtCycleEndTime.Value = AppConfiguration.CycleEndTime;
             cbPlaySound.Checked = AppConfiguration.PlaySound;
             cbShowWindow.Checked = AppConfiguration.ShowWindow;
+            cbShowDescription.Checked = AppConfiguration.ShowDescriptionTextBox;
             SetCycleRadioButtons();
             SetEnables();
         }
@@ -68,6 +69,7 @@ namespace Pomodoro
                 AppConfiguration.CycleEndTime = dtCycleEndTime.Value;
             AppConfiguration.PlaySound = cbPlaySound.Checked;
             AppConfiguration.ShowWindow = cbShowWindow.Checked;
+            AppConfiguration.ShowDescriptionTextBox = cbShowDescription.Checked;
             AppConfiguration.Save();
             Close();
             DialogResult = DialogResult.OK;

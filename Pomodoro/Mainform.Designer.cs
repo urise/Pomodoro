@@ -73,40 +73,40 @@
             this.стопToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TrayMenu.Name = "TrayMenu";
-            this.TrayMenu.Size = new System.Drawing.Size(128, 114);
+            this.TrayMenu.Size = new System.Drawing.Size(126, 114);
             // 
             // startWorkToolStripMenuItem
             // 
             this.startWorkToolStripMenuItem.Name = "startWorkToolStripMenuItem";
-            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.startWorkToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.startWorkToolStripMenuItem.Text = "Работать";
             this.startWorkToolStripMenuItem.Click += new System.EventHandler(this.btnStartWork_Click);
             // 
             // stopWorkToolStripMenuItem
             // 
             this.stopWorkToolStripMenuItem.Name = "stopWorkToolStripMenuItem";
-            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.stopWorkToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.stopWorkToolStripMenuItem.Text = "Отдыхать";
             this.stopWorkToolStripMenuItem.Click += new System.EventHandler(this.btnRest_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.pauseToolStripMenuItem.Text = "Пауза";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // стопToolStripMenuItem
             // 
             this.стопToolStripMenuItem.Name = "стопToolStripMenuItem";
-            this.стопToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.стопToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.стопToolStripMenuItem.Text = "Стоп";
             this.стопToolStripMenuItem.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.exitToolStripMenuItem.Text = "Выйти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -219,20 +219,20 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(58, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
             this.toolStripMenuItem1.Text = "Settings";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(48, 20);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(52, 20);
             this.toolStripMenuItem2.Text = "About";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(40, 20);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(44, 20);
             this.toolStripMenuItem3.Text = "Help";
             // 
             // Mainform
@@ -253,7 +253,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Mainform";
-            this.Text = "Метод Помидора 0.4";
+            this.Text = "Метод Помидора 0.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mainform_FormClosing);
             this.TrayMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctPomodoro)).EndInit();
